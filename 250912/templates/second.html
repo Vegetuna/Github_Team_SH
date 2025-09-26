@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Second Page
+    </h1>
+    <p>
+        해당 페이지는 /second 주소로 요청이 
+        들어왔을때 보여지는 페이지입니다.
+    </p>
+    <!-- table 구조
+        <tr> -> 행을 생성
+            <th>,<td>를 이용하여 열을 생성
+    -->
+    <table border=1>
+        <!-- 열에 대입이 되는 데이터는 table_data 변수 -->
+        <!-- <tr>
+            table_data에 첫번째 원소의 값들
+            <td>{{table_data[0]['DEPTNO']}}</td>
+            <td>{{table_data[0]['DNAME']}}</td>
+            <td>{{table_data[0]['LOC']}}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+                <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr> -->
+    <tr>
+        <!-- 컬럼의 이름을 대입 -->
+        {% for col in cols %}
+            <th>{{col}}</th>
+        {% endfor %}
+    </tr>
+    {% for data in table_data %}
+        <tr>
+            <!-- cols를 이용하여 반복문을 생성 -->
+            {% for col in cols %}
+            <td>{{data[col]}}</td>
+            <!-- 반복문 종료 -->
+             {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    <div>
+  <canvas id="myChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: {{x_data | tojson}},
+      datasets: [{
+        label: '# of Votes',
+        data: {{y_data | tojson}},
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

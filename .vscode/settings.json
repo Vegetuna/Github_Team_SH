@@ -1,0 +1,9 @@
+{
+    "editor.fontSize": 18,
+    "workbench.editor.autoLockGroups": {
+        "default": true
+    },
+    "editor.suggest.showClasses": true,
+    "python-envs.defaultEnvManager": "ms-python.python:system",
+    "python-envs.pythonProjects": []
+}
