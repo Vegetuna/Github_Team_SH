@@ -6,5 +6,5 @@
     "editor.suggest.showClasses": true,
     "python-envs.defaultEnvManager": "ms-python.python:system",
     "python-envs.pythonProjects": [],
-    "notebook.lineNumbers": "on"
+    "notebook.lineNumbers": "off"
 }
